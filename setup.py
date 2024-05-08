@@ -9,15 +9,12 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     author="Emmanuel Rasolofo, Giulio Ganci",
     license="The Unlicense",
-    project_urls={
-        "Source" : #github link
-    },
     classifiers=['Operating System :: OS Independent',
                    'Intended Audience :: Developers',
                    'Intended Audience :: Science/Research'
                   ],
     install_requires=["cosmopower"],
     packages=setuptools.find_packages(),
-    include_package_data=True,
+    include_package_data=True
     
 )

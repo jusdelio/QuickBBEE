@@ -5,6 +5,9 @@ import numpy as np
 from cosmopower import cosmopower_NN
 from cosmopower import cosmopower_PCAplusNN
 from numbers import Number
+import os
+dirname = os.path.dirname(os.path.abspath(__file__))
+
 
 def verify(val, interval, indice):
     params_name = ['H0', 'Alens', 'r', 'tau', 'ns', 'As', 'ombh2', 'omch2']
@@ -64,9 +67,9 @@ class set_dparams:
                            [0.94, 0.99],
                            [m.exp(3.0)*10**-10, m.exp(3.5)*10**-10],
                            [0.02, 0.025],
-                           [0.05, 0.3]
+                           [0.05, 0.30]
                            ])
-        #model ranges specified by the user
+        #model params_range specified by the user
         self.range = None
         
     def check(self):
@@ -96,10 +99,10 @@ class set_dparams:
         
     def get_spectra(self):       
         cp_nn_EE = cosmopower_NN(restore=True,
-                        restore_filename='./quickbbee/EE_BB_models/cp_NN_EE',
+                        restore_filename = os.path.join(dirname,'./EE_BB_models/cp_NN_EE'),
                         )
         cp_nn_BB = cosmopower_PCAplusNN(restore=True,
-                        restore_filename='./quickbbee/EE_BB_models/cp_NN_BB',
+                        restore_filename = os.path.join(dirname,'./EE_BB_models/cp_NN_BB'),
                         )
         
         if self.check():
@@ -144,7 +147,7 @@ class set_cparams:
                  ombh2:None, 
                  omch2:None,
                  filepath_model:None,
-                 ranges:None,
+                 params_range:None,
                  is_PCA:bool,
                  logspectra:bool,
                  lmax=2400
@@ -167,19 +170,19 @@ class set_cparams:
         self.ombh2 = ombh2
         self.omch2 = omch2
         self.filepath_model = filepath_model
-        self.ranges = ranges
+        self.params_range = params_range
         self.is_PCA = is_PCA
         self.logspectra = logspectra
 
         #verify variables
-        verify(H0, self.ranges[0], 0)
-        verify(Alens, self.ranges[1], 1) 
-        verify(r, self.ranges[2], 2) 
-        verify(tau ,self.ranges[3], 3) 
-        verify(ns, self.ranges[4], 4) 
-        verify(As, self.ranges[5], 5) 
-        verify(ombh2, self.ranges[6], 6) 
-        verify(omch2, self.ranges[7], 7)
+        verify(H0, self.params_range[0], 0)
+        verify(Alens, self.params_range[1], 1) 
+        verify(r, self.params_range[2], 2) 
+        verify(tau ,self.params_range[3], 3) 
+        verify(ns, self.params_range[4], 4) 
+        verify(As, self.params_range[5], 5) 
+        verify(ombh2, self.params_range[6], 6) 
+        verify(omch2, self.params_range[7], 7)
 
     def check(self):
         attribut = [self.H0, self.Alens,
@@ -241,6 +244,7 @@ class set_cparams:
                 predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]
             else:
                 predicted = cp_nn.predictions_np(params)[:, :self.lmax]
+            return predicted
             
         else:
             cp_nn = cosmopower_NN(restore=True,
@@ -250,14 +254,15 @@ class set_cparams:
                 predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]
             else:
                 predicted = cp_nn.predictions_np(params)[:, :self.lmax]
+            return predicted
         
             
         
         
-        return predicted
+
     
     def get_params_interval(self, show=True):
         if show:
-            print(f"Intervals:\nH0: {self.ranges[0]}\nAlens: {self.ranges[1]}\nr: {self.ranges[2]}\ntau: {self.ranges[3]}\nns: {self.ranges[4]}\nAs: {self.ranges[5]}\nombh2: {self.ranges[6]}\nomch2: {self.ranges[7]}\n")
-        return self.ranges
+            print(f"Intervals:\nH0: {self.params_range[0]}\nAlens: {self.params_range[1]}\nr: {self.params_range[2]}\ntau: {self.params_range[3]}\nns: {self.params_range[4]}\nAs: {self.params_range[5]}\nombh2: {self.params_range[6]}\nomch2: {self.params_range[7]}\n")
+        return self.params_range
 
