@@ -40,14 +40,14 @@ model = set_dparams(H0, Alens, r, tau, ns, As, ombh2, omch2, lmax)
 | ns        | [0.94, 0.99]            |
 | As        | [exp(3.0)*10^-10, exp(3.5)*10^-10] |
 | ombh2     | [0.02, 0.025]           |
-| omch2     | [0.05, 0.030]           |
+| omch2     | [0.05, 0.30]           |
 
 This table represents the default intervals used by the models in `set_dparams`.
 Example:
 
 ```python
 H0, Alens, r, tau, ns, As, ombh2, omch2 = 68, 0.2, 0.02, 0.035, 0.97, m.exp(3.3)*10**-10, 0.020, 0.05
-model = set_default_params(H0, Alens, r, tau, ns, As, ombh2, omch2, 2400)
+model = set_dparams(H0, Alens, r, tau, ns, As, ombh2, omch2, 2400)
 interval = model.get_params_interval()
 ```
 
@@ -62,5 +62,5 @@ tau: [0.03 0.09]
 ns: [0.94 0.99]
 As: [2.00855369e-09 3.31154520e-09]
 ombh2: [0.02  0.025]
-omch2: [0.05 0.03]
+omch2: [0.05 0.3]
 ```
