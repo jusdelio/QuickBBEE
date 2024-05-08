@@ -19,7 +19,7 @@ def verify(val, interval, indice):
     
         
 
-class set_params:     
+class set_dparams:     
     def __init__(self, 
                  H0:None, 
                  Alens:None, 
@@ -32,7 +32,7 @@ class set_params:
                  lmax=2400):
         
         '''CONSTRUCTOR'''
-        super(set_params, self).__init__()
+        super(set_dparams, self).__init__()
         
         #verify variables
         verify(H0, [65, 75], 0)
@@ -57,6 +57,17 @@ class set_params:
         self.As = As
         self.ombh2 = ombh2
         self.omch2 = omch2
+        self.range_default = np.array([[65, 75],
+                           [0, 1],
+                           [0, 0.5],
+                           [0.03, 0.09],
+                           [0.94, 0.99],
+                           [m.exp(3.0)*10**-10, m.exp(3.5)*10**-10],
+                           [0.02, 0.025],
+                           [0.05, 0.3]
+                           ])
+        #model ranges specified by the user
+        self.range = None
         
     def check(self):
         attribut = [self.H0, self.Alens,
@@ -117,23 +128,12 @@ class set_params:
         predicted_BB = cp_nn_BB.predictions_np(params)[:, :self.lmax]
         return np.vstack((predicted_BB, predicted_EE))
     
-    def get_params_interval(self, show=True):
-        ranges = np.array([[65, 75],
-                           [0, 1],
-                           [0, 0.5],
-                           [0.03, 0.09],
-                           [0.94, 0.99],
-                           [m.exp(3.0)*10**-10, m.exp(3.5)*10**-10],
-                           [0.02, 0.025],
-                           [0.05, 0.030]
-                           ])
+    def get_params_interval(self, show=True, new_params=None):
         if show:
-            print(f"Intervals:\nH0: {ranges[0]}\nAlens: {ranges[1]}\nr: {ranges[2]}\ntau: {ranges[3]}\nns: {ranges[4]}\nAs: {ranges[5]}\nombh2: {ranges[6]}\nomch2: {ranges[7]}\n")
-        return ranges
-
-
-
-class set_params_chosen_model_and_range:
+            print(f"Intervals:\nH0: {self.range_default[0]}\nAlens: {self.range_default[1]}\nr: {self.range_default[2]}\ntau: {self.range_default[3]}\nns: {self.range_default[4]}\nAs: {self.range_default[5]}\nombh2: {self.range_default[6]}\nomch2: {self.range_default[7]}\n")
+        return self.range_default
+    
+class set_cparams:
     def __init__(self, 
                  H0:None, 
                  Alens:None, 
@@ -144,24 +144,15 @@ class set_params_chosen_model_and_range:
                  ombh2:None, 
                  omch2:None,
                  filepath_model:None,
-                 params_range:None,
+                 ranges:None,
                  is_PCA:bool,
+                 logspectra:bool,
                  lmax=2400
                  ):
         
         '''CONSTRUCTOR'''
-        super(set_params_chosen_model_and_range, self).__init__()
-        
-        #verify variables
-        verify(H0, [65, 75], 0)
-        verify(Alens, [0, 1], 1) 
-        verify(r, [0, 0.5], 2) 
-        verify(tau ,[0.03, 0.09], 3) 
-        verify(ns, [0.94, 0.99], 4) 
-        verify(As, [m.exp(3.0)*10**-10, m.exp(3.5)*10**-10], 5) 
-        verify(ombh2, [0.020, 0.025], 6) 
-        verify(omch2, [0.05, 0.3], 7)
-        
+        super(set_cparams, self).__init__()
+              
         if lmax < 0 or lmax > 2400:
             raise ValueError("lmax should be between: 0 and 2400.")
         
@@ -176,8 +167,19 @@ class set_params_chosen_model_and_range:
         self.ombh2 = ombh2
         self.omch2 = omch2
         self.filepath_model = filepath_model
-        self.params_range = params_range
+        self.ranges = ranges
         self.is_PCA = is_PCA
+        self.logspectra = logspectra
+
+        #verify variables
+        verify(H0, self.ranges[0], 0)
+        verify(Alens, self.ranges[1], 1) 
+        verify(r, self.ranges[2], 2) 
+        verify(tau ,self.ranges[3], 3) 
+        verify(ns, self.ranges[4], 4) 
+        verify(As, self.ranges[5], 5) 
+        verify(ombh2, self.ranges[6], 6) 
+        verify(omch2, self.ranges[7], 7)
 
     def check(self):
         attribut = [self.H0, self.Alens,
@@ -235,13 +237,19 @@ class set_params_chosen_model_and_range:
             cp_nn = cosmopower_PCAplusNN(restore=True,
                         restore_filename=self.filepath_model,
                         )
-            predicted = cp_nn.predictions_np(params)[:, :self.lmax]
+            if self.logspectra:
+                predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]
+            else:
+                predicted = cp_nn.predictions_np(params)[:, :self.lmax]
             
         else:
             cp_nn = cosmopower_NN(restore=True,
                         restore_filename=self.filepath_model,
                         )
-            predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]
+            if self.logspectra:
+                predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]
+            else:
+                predicted = cp_nn.predictions_np(params)[:, :self.lmax]
         
             
         
@@ -249,15 +257,7 @@ class set_params_chosen_model_and_range:
         return predicted
     
     def get_params_interval(self, show=True):
-        ranges = np.array([[65, 75],
-                           [0, 1],
-                           [0, 0.5],
-                           [0.03, 0.09],
-                           [0.94, 0.99],
-                           [m.exp(3.0)*10**-10, m.exp(3.5)*10**-10],
-                           [0.02, 0.025],
-                           [0.05, 0.030]
-                           ])
         if show:
-            print(f"Intervals:\nH0: {ranges[0]}\nAlens: {ranges[1]}\nr: {ranges[2]}\ntau: {ranges[3]}\nns: {ranges[4]}\nAs: {ranges[5]}\nombh2: {ranges[6]}\nomch2: {ranges[7]}\n")
-        return ranges
+            print(f"Intervals:\nH0: {self.ranges[0]}\nAlens: {self.ranges[1]}\nr: {self.ranges[2]}\ntau: {self.ranges[3]}\nns: {self.ranges[4]}\nAs: {self.ranges[5]}\nombh2: {self.ranges[6]}\nomch2: {self.ranges[7]}\n")
+        return self.ranges
+

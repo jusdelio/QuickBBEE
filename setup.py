@@ -8,7 +8,7 @@ setuptools.setup(
     long_description = pathlib.Path("README.md").read_text(),
     long_description_content_type="text/markdown",
     author="Emmanuel Rasolofo, Giulio Ganci",
-    license="The Unlicence",
+    license="The Unlicense",
     project_urls={
         "Source" : #github link
     },
