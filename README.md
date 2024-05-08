@@ -15,7 +15,7 @@ This directory contains the "QuickBBEE" package.
 | ns        | [0.94, 0.99]            |
 | As        | [exp(3.0)*10^-10, exp(3.5)*10^-10] |
 | ombh2     | [0.02, 0.025]           |
-| omch2     | [0.05, 0.030]           |
+| omch2     | [0.05, 0.30]           |
 
 This table represents the default intervals used by the models in `set_dparams`.
 Example:
