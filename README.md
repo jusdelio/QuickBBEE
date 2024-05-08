@@ -4,6 +4,34 @@ This directory contains the "QuickBBEE" package.
 
 - [bbee.py](bbee.py) includes two classes: `set_dparams`, which initializes an object to generate two spectra EE and BB using provided models, and `set_cparams`, which initializes an object allowing the user to specify their own model created only by [cosmopower](https://github.com/alessiospuriomancini/cosmopower/blob/main/cosmopower).
 
+# Installation
+
+We recommend installing [bbee.py](bbee.py) within a [Conda](https://docs.conda.io/projects/conda/en/latest/index.html) virtual environment. 
+For example, to create and activate an environment called ``cp_env``, use:
+
+    conda create -n cp_env python=3.7 pip && conda activate cp_env
+
+Once inside the environment, you can install [bbee.py](bbee.py):
+
+- **from PyPI**
+
+        pip install cosmopower
+
+    To test the installation, you can use
+
+        python3 -c 'import cosmopower as cp'
+    
+    If you do not have a GPU on your machine, you will see a warning message about it which you can safely ignore.
+
+- **from source**
+
+        git clone https://github.com/alessiospuriomancini/cosmopower
+        cd cosmopower
+        pip install .
+
+    To test the installation, you can use
+
+        pytest
 
 
 ## Generate Spectra
