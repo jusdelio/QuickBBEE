@@ -1,3 +1,2 @@
 cosmopower
 numpy
-test
