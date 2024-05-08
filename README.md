@@ -4,6 +4,31 @@ This directory contains the "QuickBBEE" package.
 
 - [bbee.py](bbee.py) includes two classes: `set_dparams`, which initializes an object to generate two spectra EE and BB using provided models, and `set_cparams`, which initializes an object allowing the user to specify their own model created only by [cosmopower](https://github.com/alessiospuriomancini/cosmopower/blob/main/cosmopower).
 
+
+
+## Generate Spectra
+
+the first step is to initialize the parameters with the wanted values:
+
+```python
+from quickbbee import set_dparams
+from quickbbee import set_cparams
+import matplotlib.pyplot as plt
+import math as m
+import numpy as np
+
+H0, Alens, r, tau, ns, As, ombh2, omch2 = 68, 0.2, 0.02, 0.035, 0.97, m.exp(3.3)*10**-10, 0.020, 0.05
+```
+
+Then, we create a class (model) with the wanted parameters :
+
+```python
+l_max = 2400
+
+model = set_dparams(H0, Alens, r, tau, ns, As, ombh2, omch2, lmax)
+```
+
+
 ## Default Parameter Intervals
 
 | Parameter | Interval                |
@@ -24,8 +49,11 @@ Example:
 H0, Alens, r, tau, ns, As, ombh2, omch2 = 68, 0.2, 0.02, 0.035, 0.97, m.exp(3.3)*10**-10, 0.020, 0.05
 model = set_default_params(H0, Alens, r, tau, ns, As, ombh2, omch2, 2400)
 interval = model.get_params_interval()
+```
 
-# Output
+
+## Output
+```python
 Intervals:
 H0: [65. 75.]
 Alens: [0. 1.]
