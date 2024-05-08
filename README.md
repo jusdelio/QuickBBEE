@@ -22,7 +22,7 @@ Example:
 
 ```python
 H0, Alens, r, tau, ns, As, ombh2, omch2 = 68, 0.2, 0.02, 0.035, 0.97, m.exp(3.3)*10**-10, 0.020, 0.05
-model = set_default_params(H0, Alens, r, tau, ns, As, ombh2, omch2, 2400)
+model = set_dparams(H0, Alens, r, tau, ns, As, ombh2, omch2, 2400)
 interval = model.get_params_interval()
 
 # Output
