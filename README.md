@@ -15,19 +15,19 @@ Once inside the environment, you can install [bbee.py](bbee.py):
 
 - **from PyPI**
 
-        pip install cosmopower
+        pip install QuickBBEE
 
     To test the installation, you can use
 
-        python3 -c 'import cosmopower as cp'
+        python3 -c 'import QuickBBEE as Quick'
     
     If you do not have a GPU on your machine, you will see a warning message about it which you can safely ignore.
 
 - **from source**
 
-        git clone https://github.com/alessiospuriomancini/cosmopower
-        cd cosmopower
-        pip install .
+        git clone https://github.com/jusdelio/QuickBBEE
+        cd QuickBBEE
+        pip install -e .
 
     To test the installation, you can use
 
