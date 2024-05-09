@@ -16,8 +16,7 @@ Once inside the environment, you can install [bbee.py](bbee.py):
     To test the installation, you can use
 
         python3 -c 'import quickbbee as quick'
-    
-    If you do not have a GPU on your machine, you will see a warning message about it which you can safely ignore.
+
 
 - **from source**
 
