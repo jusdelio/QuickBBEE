@@ -11,18 +11,18 @@ Once inside the environment, you can install [bbee.py](bbee.py):
 
 - **from PyPI**
 
-        pip install QuickBBEE
+        pip install quickbbee
 
     To test the installation, you can use
 
-        python3 -c 'import QuickBBEE as Quick'
+        python3 -c 'import quickbbee as quick'
     
     If you do not have a GPU on your machine, you will see a warning message about it which you can safely ignore.
 
 - **from source**
 
         git clone https://github.com/jusdelio/QuickBBEE
-        cd QuickBBEE
+        cd quickbbee
         pip install -e .
 
     To test the installation, you can use
