@@ -157,7 +157,7 @@ class set_cparams:
         super(set_cparams, self).__init__()
               
         if lmax < 0:
-            raise ValueError("lmax should be between: 0 and 2400.")
+            raise ValueError("lmax should be positif.")
         
         #set variables
         self.lmax = lmax
@@ -232,13 +232,17 @@ class set_cparams:
                 'As':[self.As],
                 'ombh2':[self.ombh2],
                 'omch2':[self.omch2]
-            }        
+            }     
+        
+        chemin_absolu = os.path.abspath(self.filepath_model) 
+        print(f"Model used in: {chemin_absolu}\n")
+          
 
         cp_nn = None
         predicted = None
         if(self.is_PCA):
             cp_nn = cosmopower_PCAplusNN(restore=True,
-                        restore_filename=self.filepath_model,
+                        restore_filename=chemin_absolu,
                         )
             if self.logspectra:
                 predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]
@@ -248,7 +252,7 @@ class set_cparams:
             
         else:
             cp_nn = cosmopower_NN(restore=True,
-                        restore_filename=self.filepath_model,
+                        restore_filename=chemin_absolu,
                         )
             if self.logspectra:
                 predicted = cp_nn.ten_to_predictions_np(params)[:, :self.lmax]

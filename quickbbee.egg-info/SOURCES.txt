@@ -12,6 +12,4 @@ quickbbee.egg-info/requires.txt
 quickbbee.egg-info/top_level.txt
 quickbbee/EE_BB_models/cp_NN_BB.pkl
 quickbbee/EE_BB_models/cp_NN_EE.pkl
-quickbbee/tests/cp_NN_BB.pkl
-quickbbee/tests/cp_NN_EE.pkl
-quickbbee/tests/testing.ipynb
+quickbbee/tests/test_quickbbee.py
