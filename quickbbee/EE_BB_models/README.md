@@ -1,0 +1,11 @@
+This directory contains the "QuickBBEE" package.
+
+- [bbee.py](bbee.py) includes two classes: `set_dparams`, which initializes an object to generate two spectra EE and BB using provided models, and `set_cparams`, which initializes an object allowing the user to specify their own model created only by [cosmopower](https://github.com/alessiospuriomancini/cosmopower/blob/main/cosmopower).
+
+The steps taken for the creation of the two models EE and BB:
+
+1. Firstly, we generated 100,000 parameters of dimension (100,000, 8) using LatinHypercube (link in blue: [LatinHypercube](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.qmc.LatinHypercube.html#scipy.stats.qmc.LatinHypercube)). Then, we used these parameters as inputs into CAMB (link in blue: [CAMB](https://camb.readthedocs.io/en/latest/)) to generate spectra using the `get_lensed_scalar_cls` function.
+   
+2. Next, we prepared the obtained data by transforming them into dictionaries with the following format: for the parameters: keys are the names of each parameter, attributes are the corresponding columns for each parameter. For the spectra: keys are the multipoles and the features are the respective attributes, consisting of the interval concerned (starting from 2 because indices 0 and 1 are zero), and the spectra. For the EE spectra, we logged the values to facilitate computation using cosmopower ([cosmopower](https://github.com/alessiospuriomancini/cosmopower)) (logging for prediction and delogging afterwards). For the BB spectra, on the other hand, we used PCA compression, which is a method aimed at simplifying data while preserving their structure and essential characteristics.
+
+After training the data, the error committed by the two models is shown below.
