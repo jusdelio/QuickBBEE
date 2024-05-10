@@ -16,7 +16,7 @@ import numpy as np
 H0, Alens, r, tau, ns, As, ombh2, omch2 = 68, 0.2, 0.02, 0.035, 0.97, m.exp(3.3)*10**-10, 0.020, 0.05
 ```
 
-Then, we create a class (model) with the wanted parameters :
+Then, we initialize a class (model) with the wanted parameters :
 
 ```python
 l_max = 2400
