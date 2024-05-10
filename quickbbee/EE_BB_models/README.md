@@ -1,9 +1,3 @@
-This directory contains the "QuickBBEE" package.
-
-- [bbee.py](bbee.py) contains two classes:
-  - `set_dparams`: Initializes an object to generate two spectra EE and BB using provided models.
-  - `set_cparams`: Initializes an object allowing the user to specify their own model created only by [cosmopower](https://github.com/alessiospuriomancini/cosmopower/blob/main/cosmopower).
-
 The steps taken for the creation of the EE and BB models:
 
 1. Firstly, we generated 100,000 parameters of dimension (100,000, 8) using [LatinHypercube](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.qmc.LatinHypercube.html#scipy.stats.qmc.LatinHypercube). Then, we used these parameters as inputs into [CAMB](https://camb.readthedocs.io/en/latest/) to generate spectra using the `get_lensed_scalar_cls` function.
