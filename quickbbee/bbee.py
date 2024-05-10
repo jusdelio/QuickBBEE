@@ -150,13 +150,13 @@ class set_cparams:
                  params_range:None,
                  is_PCA:bool,
                  logspectra:bool,
-                 lmax=2400
+                 lmax:None
                  ):
         
         '''CONSTRUCTOR'''
         super(set_cparams, self).__init__()
               
-        if lmax < 0 or lmax > 2400:
+        if lmax < 0:
             raise ValueError("lmax should be between: 0 and 2400.")
         
         #set variables
