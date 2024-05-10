@@ -87,3 +87,4 @@ As: [2.00855369e-09 3.31154520e-09]
 ombh2: [0.02  0.025]
 omch2: [0.05 0.3]
 ```
+If you are interested in how we trained the two models, follow this link: [https://github.com/jusdelio/QuickBBEE/blob/main/quickbbee/EE_BB_models/README.md](https://github.com/jusdelio/QuickBBEE/blob/main/quickbbee/EE_BB_models/README.md)
