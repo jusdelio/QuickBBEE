@@ -101,7 +101,7 @@ class set_dparams:
         cp_nn_EE = cosmopower_NN(restore=True,
                         restore_filename = os.path.join(dirname,'./EE_BB_models/cp_NN_EE'),
                         )
-        cp_nn_BB = cosmopower_PCAplusNN(restore=True,
+        cp_nn_BB = cosmopower_NN(restore=True,
                         restore_filename = os.path.join(dirname,'./EE_BB_models/cp_NN_BB'),
                         )
         
@@ -128,7 +128,7 @@ class set_dparams:
                 'omch2':[self.omch2]
             }            
         predicted_EE = cp_nn_EE.ten_to_predictions_np(params)[:, :self.lmax]
-        predicted_BB = cp_nn_BB.predictions_np(params)[:, :self.lmax]
+        predicted_BB = cp_nn_BB.ten_to_predictions_np(params)[:, :self.lmax]
         return np.vstack((predicted_BB, predicted_EE))
     
     def get_params_interval(self, show=True, new_params=None):
