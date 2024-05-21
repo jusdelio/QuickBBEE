@@ -1,4 +1,4 @@
-# QuickBBEE (Beta)
+# QuickBBEE 
 
 # Installation
 
@@ -9,7 +9,7 @@ For example, to create and activate an environment called ``cp_env``, use:
 
 Once inside the environment, you can install [bbee.py](bbee.py):
 
-- **from PyPI** (not yet)
+- **from PyPI** 
 
         pip install quickbbee
 
