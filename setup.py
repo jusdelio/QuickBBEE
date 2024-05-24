@@ -14,7 +14,7 @@ setuptools.setup(
         'Intended Audience :: Developers',
         'Intended Audience :: Science/Research'
     ],
-    install_requires=["cosmopower"],
+    install_requires=["cosmopower", "tf-keras"],
     packages=setuptools.find_packages(),
     include_package_data=True,
     url="https://github.com/jusdelio/QuickBBEE.git" 
