@@ -7,14 +7,12 @@ The steps taken for the creation of the EE and BB models:
 
 
 Here are the error graphs, for both the EE model, and the EE model:
-![Capture d'écran 2024-05-24 15:06:47](https://github.com/jusdelio/QuickBBEE/assets/43094323/194d5d47-fde0-43d9-b575-4900d7fce1eb)
-![Capture d'écran 2024-05-24 15:07:08](https://github.com/jusdelio/QuickBBEE/assets/43094323/b429c55c-f486-4a8e-82df-ab239be30471)
-![Capture d'écran 2024-05-24 15:03:48](https://github.com/jusdelio/QuickBBEE/assets/43094323/dda1169c-f02d-4ce7-81a4-0189f4952e2f)
-![Capture d'écran 2024-05-24 15:01:51](https://github.com/jusdelio/QuickBBEE/assets/43094323/1b17e6f4-f88f-433c-aa7d-adf4b6601322)
 
 <div style="display: flex; flex-wrap: wrap;">
   <img src="https://github.com/jusdelio/QuickBBEE/assets/43094323/194d5d47-fde0-43d9-b575-4900d7fce1eb" alt="Capture d'écran 2024-05-24 15:06:47" style="width: 24%; margin-right: 1%;">
   <img src="https://github.com/jusdelio/QuickBBEE/assets/43094323/b429c55c-f486-4a8e-82df-ab239be30471" alt="Capture d'écran 2024-05-24 15:07:08" style="width: 24%; margin-right: 1%;">
+</div>
+<div style="display: flex; flex-wrap: wrap;">
   <img src="https://github.com/jusdelio/QuickBBEE/assets/43094323/dda1169c-f02d-4ce7-81a4-0189f4952e2f" alt="Capture d'écran 2024-05-24 15:03:48" style="width: 24%; margin-right: 1%;">
   <img src="https://github.com/jusdelio/QuickBBEE/assets/43094323/1b17e6f4-f88f-433c-aa7d-adf4b6601322" alt="Capture d'écran 2024-05-24 15:01:51" style="width: 24%;">
 </div>
