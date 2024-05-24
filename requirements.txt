@@ -1,2 +1,2 @@
 cosmopower
-numpy
+tf-keras
