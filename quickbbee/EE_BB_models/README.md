@@ -6,6 +6,8 @@ The steps taken for the creation of the EE and BB models:
 
 
 
-
-![Capture d'écran 2024-05-17 16:03:24](https://github.com/jusdelio/QuickBBEE/assets/43094323/2ae7c078-f861-426f-ac29-30556d442ba5)
-![Capture d'écran 2024-05-06 14:06:59](https://github.com/jusdelio/QuickBBEE/assets/43094323/6222fca4-3af9-4842-a49e-86cd875572e8)
+Here are the error graphs, for both the EE model, and the EE model:
+![Capture d'écran 2024-05-24 15:06:47](https://github.com/jusdelio/QuickBBEE/assets/43094323/194d5d47-fde0-43d9-b575-4900d7fce1eb)
+![Capture d'écran 2024-05-24 15:07:08](https://github.com/jusdelio/QuickBBEE/assets/43094323/b429c55c-f486-4a8e-82df-ab239be30471)
+![Capture d'écran 2024-05-24 15:01:51](https://github.com/jusdelio/QuickBBEE/assets/43094323/1b17e6f4-f88f-433c-aa7d-adf4b6601322)
+![Capture d'écran 2024-05-24 15:03:48](https://github.com/jusdelio/QuickBBEE/assets/43094323/dda1169c-f02d-4ce7-81a4-0189f4952e2f)
