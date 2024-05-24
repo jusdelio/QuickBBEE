@@ -7,3 +7,5 @@ The steps taken for the creation of the EE and BB models:
 
 
 
+![Capture d'écran 2024-05-17 16:03:24](https://github.com/jusdelio/QuickBBEE/assets/43094323/2ae7c078-f861-426f-ac29-30556d442ba5)
+![Capture d'écran 2024-05-06 14:06:59](https://github.com/jusdelio/QuickBBEE/assets/43094323/6222fca4-3af9-4842-a49e-86cd875572e8)
