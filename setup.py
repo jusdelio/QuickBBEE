@@ -8,7 +8,7 @@ setuptools.setup(
     long_description=pathlib.Path("README.md").read_text(),
     long_description_content_type="text/markdown",
     author="Emmanuel Rasolofo, Giulio Ganci",
-    license="The Unlicense",
+    license="GNU General Public License v3.0",
     classifiers=[
         'Operating System :: OS Independent',
         'Intended Audience :: Developers',
