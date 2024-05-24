@@ -6,7 +6,7 @@ The steps taken for the creation of the EE and BB models:
 
 
 
-Here are the error graphs, for both the EE model, and the EE model:
+Here are the error graphs, for both the BB model, and the EE model:
 
 <div style="display: flex; flex-wrap: wrap;">
   <img src="https://github.com/jusdelio/QuickBBEE/assets/43094323/194d5d47-fde0-43d9-b575-4900d7fce1eb" alt="Capture d'écran 2024-05-24 15:06:47" style="width: 24%; margin-right: 1%;">
