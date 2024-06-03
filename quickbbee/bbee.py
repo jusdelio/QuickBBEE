@@ -20,7 +20,16 @@ def verify(val, interval, indice):
                 raise ValueError(f"Invalid Interval Usage: The parameters {params_name[indice]} = {val} is not in {interval}\n")
         return True
     
-        
+def get_drange():
+    return np.array([[65, 75],
+                           [0, 1],
+                           [0, 0.5],
+                           [0.03, 0.09],
+                           [0.94, 0.99],
+                           [m.exp(3.0)*10**-10, m.exp(3.5)*10**-10],
+                           [0.02, 0.025],
+                           [0.05, 0.30]
+                           ])
 
 class set_dparams:     
     def __init__(self, 
